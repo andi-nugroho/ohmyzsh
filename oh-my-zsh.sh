@@ -1,17 +1,5 @@
 
-    # Show process tree
-    case "$(uname)" in
-    Linux) ps -o ppid,pid,command -f -p $pids 2>/dev/null ;;
-    Darwin|*) ps -o ppid,pid,command -p $pids 2>/dev/null ;;
-    esac
-
-    # If ps command failed, try Busybox ps
-    [ $? -eq 0 ] || ps -o ppid,pid,comm | awk "NR == 1 || index(\"$pids\", \$2) != 0"
-  }
-
-  {
-    shell=$(ps -o pid,comm | awk "\$1 == $$ { print \$2 }")
-    printf "$(omz_f 1 31)Error:$(omz_f 22) Oh My Zsh can't be loaded from: $(omz_f 1)${shell}$(omz_f 22). "
+   22) Oh My Zsh can't be loaded from: $(omz_f 1)${shell}$(omz_f 22). "
     printf "You need to run $(omz_f 1)zsh$(omz_f 22) instead.$(omz_f 0)\n"
     printf "$(omz_f 33)Here's the process tree:$(omz_f 22)\n\n"
     omz_ptree
