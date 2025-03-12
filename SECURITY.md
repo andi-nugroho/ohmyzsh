@@ -1,8 +1,5 @@
 #
 
-| Version        | Supported          |
-|:-------------- |:------------------ |
-| master         | :white_check_mark: |
 | other commits  | :x:                |
 
 In the near future we will introduce versioning, so expect this section to change.
