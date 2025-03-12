@@ -1,21 +1,5 @@
 
-   22) Oh My Zsh can't be loaded from: $(omz_f 1)${shell}$(omz_f 22). "
-    printf "You need to run $(omz_f 1)zsh$(omz_f 22) instead.$(omz_f 0)\n"
-    printf "$(omz_f 33)Here's the process tree:$(omz_f 22)\n\n"
-    omz_ptree
-    printf "$(omz_f 0)\n"
-  } >&2
-
-  return 1
-}
-
-# Check if in emulation mode, if so early return
-# https://github.com/ohmyzsh/ohmyzsh/issues/11686
-[[ "$(emulate)" = zsh ]] || {
-  printf "$(omz_f 1 31)Error:$(omz_f 22) Oh My Zsh can't be loaded in \`$(emulate)\` emulation mode.$(omz_f 0)\n" >&2
-  return 1
-}
-
+   
 unset -f omz_f
 
 # If ZSH is not defined, use the current script's directory.
