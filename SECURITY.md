@@ -1,10 +1,4 @@
-# Security Policy
-
-## Supported Versions
-
-At the moment Oh My Zsh only considers the very latest commit to be supported.
-We combine that with our fast response to incidents and the automated updates
-to minimize the time between vulnerability publication and patch release.
+#
 
 | Version        | Supported          |
 |:-------------- |:------------------ |
