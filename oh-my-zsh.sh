@@ -1,41 +1,4 @@
 
-  
-fi
-
-# Create cache and completions dir and add to $fpath
-mkdir -p "$ZSH_CACHE_DIR/completions"
-(( ${fpath[(Ie)$ZSH_CACHE_DIR/completions]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
-
-# Check for updates on initial load...
-source "$ZSH/tools/check_for_upgrade.sh"
-
-# Initializes Oh My Zsh
-
-# add a function path
-fpath=($ZSH/{functions,completions} $ZSH_CUSTOM/{functions,completions} $fpath)
-
-# Load all stock functions (from $fpath files) called below.
-autoload -U compaudit compinit zrecompile
-
-is_plugin() {
-  local base_dir=$1
-  local name=$2
-  builtin test -f $base_dir/plugins/$name/$name.plugin.zsh \
-    || builtin test -f $base_dir/plugins/$name/_$name
-}
-
-# Add all defined plugins to fpath. This must be done
-# before running compinit.
-for plugin ($plugins); do
-  if is_plugin "$ZSH_CUSTOM" "$plugin"; then
-    fpath=("$ZSH_CUSTOM/plugins/$plugin" $fpath)
-  elif is_plugin "$ZSH" "$plugin"; then
-    fpath=("$ZSH/plugins/$plugin" $fpath)
-  else
-    echo "[oh-my-zsh] plugin '$plugin' not found"
-  fi
-done
-
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
   # macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
