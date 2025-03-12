@@ -1,20 +1,3 @@
-# ANSI formatting function (\033[<code>m)
-# 0: reset, 1: bold, 4: underline, 22: no bold, 24: no underline, 31: red, 33: yellow
-omz_f() {
-  [ $# -gt 0 ] || return
-  IFS=";" printf "\033[%sm" $*
-}
-# If stdout is not a terminal ignore all formatting
-[ -t 1 ] || omz_f() { :; }
-
-# Protect against non-zsh execution of Oh My Zsh (use POSIX syntax here)
-[ -n "$ZSH_VERSION" ] || {
-  omz_ptree() {
-    # Get process tree of the current process
-    pid=$$; pids="$pid"
-    while [ ${pid-0} -ne 1 ] && ppid=$(ps -e -o pid,ppid | awk "\$1 == $pid { print \$2 }"); do
-      pids="$pids $pid"; pid=$ppid
-    done
 
     # Show process tree
     case "$(uname)" in
