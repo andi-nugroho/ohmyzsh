@@ -21,3 +21,4 @@ Instead, you should use the form to [privately report a vulnerability to us via 
 or email the maintainers directly at: [**security@ohmyz.sh**](mailto:security@ohmyz.sh).
 
 We will deal with the vulnerability privately and submit a patch as soon as possible.
+
